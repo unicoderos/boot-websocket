@@ -9,6 +9,10 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
 
+	/**
+	 * Document your attribute and function
+	 * @param registry
+	 */
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
 		registry.addHandler(new SocketTextHandler(), "/user");
 	}

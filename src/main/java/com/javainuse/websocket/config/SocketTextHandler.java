@@ -17,6 +17,13 @@ int i=0;
 float max = 600;
 float min =100;
 
+	/**
+	 * Handles text message
+	 * @param session
+	 * @param message
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
 	@Override
 	public void handleTextMessage(WebSocketSession session, TextMessage message)
 			throws InterruptedException, IOException {
