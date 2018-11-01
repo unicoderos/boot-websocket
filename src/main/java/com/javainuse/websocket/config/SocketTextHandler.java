@@ -18,7 +18,7 @@ float max = 600;
 float min =100;
 
 	/**
-	 * Handles text message
+	 *
 	 * @param session
 	 * @param message
 	 * @throws InterruptedException
