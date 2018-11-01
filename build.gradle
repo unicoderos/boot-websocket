@@ -36,10 +36,10 @@ jar {
 
 }
 
-configurations {
-    compile.exclude module: 'spring-boot-starter-tomcat'
-    compile.exclude group: 'org.apache.tomcat'
-}
+//configurations {
+  //  compile.exclude module: 'spring-boot-starter-tomcat'
+    //compile.exclude group: 'org.apache.tomcat'
+//}
 
 dependencies{
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-gradle-plugin
