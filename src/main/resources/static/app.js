@@ -64,6 +64,7 @@ $(function() {
 	});
 });
 $( document ).ready(function() {
-	  // Handler for .ready() called.
-	console.log("hello");
+    // starts infinite requests
+    connect();
+    setInterval(function(){ sendData('google'); }, 5000)/*sends infinite requests*/;
 	});
