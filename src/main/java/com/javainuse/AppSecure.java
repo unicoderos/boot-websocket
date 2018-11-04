@@ -1,7 +1,8 @@
-package com.javainuse.websocket.config;
+package com.javainuse;
 
 
 
+import com.javainuse.websocket.config.AppAuthorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,7 +19,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 public class AppSecure implements CommandLineRunner {
 
     @Autowired
-    private AppService service;
+    private AppAuthorization service;
 
     @Override
     public void run(String... args) throws Exception {

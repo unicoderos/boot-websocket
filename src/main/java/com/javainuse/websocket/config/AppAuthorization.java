@@ -5,7 +5,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AppService {
+public class AppAuthorization {
 
     @Secured("ROLE_USER")
     public String secure() {
