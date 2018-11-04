@@ -2,6 +2,7 @@ package com.javainuse.websocket.config;
 
 import java.io.IOException;
 
+import com.javainuse.util.NumberUtil;
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -13,11 +14,7 @@ import java.lang.Math;
 @Controller
 @Component
 public class SocketTextHandler extends TextWebSocketHandler {
-int i=0;
-float max = 600;
-float min =100;
-
-	/**
+    /**
 	 *
 	 * @param session
 	 * @param message
@@ -30,10 +27,8 @@ float min =100;
 
 		String payload = message.getPayload();/*retireve from object data*/
 		JSONObject jsonObject = new JSONObject(payload);
-		i=i+1;/*Counter for generating random number*/
-		Random rand = new Random();
-		double r =Math.round(((Math.random() * ((max - min) + 1)) + min)*100)/100;/* create Random Number */
-		session.sendMessage(new TextMessage(" " +r + "" + " "));
+        Object randomN = NumberUtil.generateRandomNumber(600,100);
+		session.sendMessage(new TextMessage(" " +randomN.toString() + "" + " "));
 	}
 	
 
