@@ -27,7 +27,7 @@ repositories {
 jar {
 
     manifest {
-        attributes 'Main-Class' : 'com.devglan.Application'
+        attributes 'Main-Class' : 'com.javainuse.websocket.config'
 
     }
 
