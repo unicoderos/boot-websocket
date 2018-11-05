@@ -10,3 +10,4 @@ out/
 .gradle/
 .idea/
 .metadata
+*.iml
