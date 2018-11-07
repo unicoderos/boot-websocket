@@ -11,3 +11,4 @@ out/
 .idea/
 .metadata
 *.iml
+.DS_Store
