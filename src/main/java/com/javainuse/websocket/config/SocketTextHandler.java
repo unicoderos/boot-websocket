@@ -10,12 +10,22 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-import java.util.Random;
-import java.lang.Math;
-
+/**
+ * This annotation serves as a specialization of @Component,
+ * allowing for implementation classes to be autodetected through classpath scanning.
+ * It is typically used in combination with annotated handler methods based on the RequestMapping annotation.
+ */
 @Controller
+/**
+ * Indicates that an annotated class is a "component". Such classes are considered as candidates
+ * for auto-detection when using annotation-based configuration and classpath scanning.
+ * Other class-level annotations may be considered as identifying a component as well,
+ * typically a special kind of component: e.g. the @Repository annotation or AspectJ's @Aspect annotation.
+ */
 @Component
 public class SocketTextHandler extends TextWebSocketHandler {
+
+
 
     @Override
     public void handleTextMessage(WebSocketSession session, TextMessage message)
@@ -24,46 +34,34 @@ public class SocketTextHandler extends TextWebSocketHandler {
         String payload = message.getPayload();
         JSONObject jsonObject = new JSONObject(payload);
 
-        if (jsonObject.get("user").toString().matches("google")) {
+        String userMessage = jsonObject.getString("user").toString().trim();
+        Object randomN = NumberUtil.generateRandomNumber(600, 100);
+        switch (userMessage){
 
+            case "google":
 
-            Object randomN = NumberUtil.generateRandomNumber(600, 100);
-            session.sendMessage(new TextMessage("google: " + randomN.toString() + ""));
+                 randomN = NumberUtil.generateRandomNumber(600, 100);
+                session.sendMessage(new TextMessage("google: " + randomN.toString() + ""));
+                break;
+            case "hotmail":
 
-        }
-        if (jsonObject.get("user").toString().matches("hotmail")) {
+                 randomN = NumberUtil.generateRandomNumber(600, 100);
+                session.sendMessage(new TextMessage("hotmail:" + ((Double) randomN * -1) + ""));
+                break;
+            case "yahoo":
 
+                 randomN = NumberUtil.generateRandomNumber(600, 100);
+                session.sendMessage(new TextMessage("yahoo:" + ((double) randomN * 10) + ""));
+                break;
+            case "netflix":
 
-            Object randomN = NumberUtil.generateRandomNumber(600, 100);
+                Object randomN3 = NumberUtil.generateRandomNumber(600, 100);
+                session.sendMessage(new TextMessage("netflix:" + ((double) randomN3 / 10) + ""));
+                break;
+            case "oracle":
 
-            session.sendMessage(new TextMessage("hotmail:" + ((Double) randomN * -1) + ""));
-
-
-        }
-        if (jsonObject.get("user").toString().matches("yahoo")) {
-
-
-            Object randomN = NumberUtil.generateRandomNumber(600, 100);
-
-            session.sendMessage(new TextMessage("yahoo:" + ((double) randomN * 10) + ""));
-
-
-        }
-        if (jsonObject.get("user").toString().matches("netflix")) {
-
-
-            Object randomN = NumberUtil.generateRandomNumber(600, 100);
-
-            session.sendMessage(new TextMessage("netflix:" + ((double) randomN / 10) + ""));
-
-
-        }
-        if (jsonObject.get("user").toString().matches("orcale")) {
-
-
-            Object randomN = NumberUtil.generateRandomNumber(600, 100);
-
-            session.sendMessage(new TextMessage("orcale:" + ((double) randomN + 10) + ""));
+                Object randomN4 = NumberUtil.generateRandomNumber(600, 100);
+                session.sendMessage(new TextMessage("orcale:" + ((double) randomN4 + 10) + ""));
 
         }
 

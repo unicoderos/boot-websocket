@@ -63,7 +63,7 @@ task myWarTask(type: War) {
 
     war.baseName = 'hw1'
     archiveName = 'hw1.war'
-    project.webAppDirName = 'WebContent'
+    project.webAppDirName = 'src/main'
     from "src/main"
     webInf { from 'src/main/resources' } // adds a file-set to the WEB-INF dir.
     //classpath fileTree('additionalLibs') // adds a file-set to the WEB-INF/lib dir.
