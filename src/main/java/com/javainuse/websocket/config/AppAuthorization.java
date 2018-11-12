@@ -33,7 +33,7 @@ public class AppAuthorization {
      * method invocation is allowed or not.
      * @return connection authorization status
      */
-    @PreAuthorize("false ")
+    @PreAuthorize("true")
     public String authorized() {
         return "Connection Authorized";
     }
