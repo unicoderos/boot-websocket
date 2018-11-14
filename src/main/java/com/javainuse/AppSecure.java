@@ -2,8 +2,10 @@ package com.javainuse;
 
 
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import static org.springframework.boot.SpringApplication.*;
 
 @SpringBootApplication
 public class AppSecure{
@@ -11,7 +13,7 @@ public class AppSecure{
 
     public static void main(String[] args) {
 
-        SpringApplication.run(AppSecure.class);
+        ConfigurableApplicationContext run = run(AppSecure.class);
 
     }
 

@@ -25,8 +25,6 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 @Component
 public class SocketTextHandler extends TextWebSocketHandler {
 
-
-
     @Override
     public void handleTextMessage(WebSocketSession session, TextMessage message)
             throws InterruptedException, IOException {
