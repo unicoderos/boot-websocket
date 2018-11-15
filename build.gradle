@@ -9,7 +9,6 @@ plugins {
 
 group='com.javainuse'
 version='0.0.1-SNAPSHOT'
-
 sourceCompatibility=1.8
 targetCompatibility=1.8
 
@@ -18,56 +17,32 @@ configurations {
 }
 
 mainClassName = "com.javainuse.AppSecure"
-// In this section you declare where to find the dependencies of your project
+
+
 repositories {
-    // Use jcenter for resolving your dependencies.
-    // You can declare any Maven/Ivy/file repository here.
+    
     jcenter()
-    maven { url "https://repo.spring.io/milestone" }
-
-}
-
-jar {
-
-    manifest {
-        attributes 'Main-Class' : 'com.javainuse.AppSecure'
-
-    }
-
-    baseName = "group2-hw1-websocket"
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 
 }
 
 //configurations {
-  //  compile.exclude module: 'spring-boot-starter-tomcat'
-    //compile.exclude group: 'org.apache.tomcat'
+//  compile.exclude module: 'spring-boot-starter-tomcat'
+//compile.exclude group: 'org.apache.tomcat'
 //}
 
 dependencies{
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-gradle-plugin
-    compile group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: '2.1.0.RELEASE', ext: 'pom'
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-websocket
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-websocket', version: '2.1.0.RELEASE'
     // https://mvnrepository.com/artifact/com.google.code.gson/gson
     compile group: 'com.google.code.gson', name: 'gson', version: '2.8.5'
     // https://mvnrepository.com/artifact/org.json/json
     compile group: 'org.json', name: 'json', version: '20180813'
+    
+}
 
-
+task deploy(type: Exec){
+    workingDir '.'
+    commandLine './deploy.sh'
 }
 
 
-
-task myWarTask(type: War) {
-
-    war.baseName = 'hw1'
-    archiveName = 'hw1.war'
-    project.webAppDirName = 'WebContent'
-    from "src/main"
-    webInf { from 'src/main/resources' } // adds a file-set to the WEB-INF dir.
-    //classpath fileTree('additionalLibs') // adds a file-set to the WEB-INF/lib dir.
-    //classpath configurations.moreLibs // adds a configuration to the WEB-INF/lib dir.
-    //webXml = file('src/someWeb.xml') // copies a file to WEB-INF/web.xml
-
-}
