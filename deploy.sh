@@ -1,6 +1,6 @@
 #!/bin/sh
 
-copyToServer build/libs/boot-websocket-0.0.1-SNAPSHOT.war
+copyToAWS_01 build/libs/boot-websocket-0.0.1-SNAPSHOT.war
 ssh -i ~/.ssh/olg-aws.pem ubuntu@18.223.10.187 <<EOF
 
 RUNPID=$(ps ax -l | grep "boot-websocket-0.0.1-SNAPSHOT.war" | awk '{print $4}' | head -n 1)
